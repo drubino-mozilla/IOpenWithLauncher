@@ -1,6 +1,6 @@
-# OpenWithLauncher
+# DIExplorer
 
-A small .NET 9 WinForms app that programmatically opens the Windows **"Select a default app for .xxx files"** system dialog -- the same popup used by Adobe Acrobat, Chromium, and others to prompt users to change their default file association.
+**Desktop Integrations Explorer** — a .NET 9 WinForms app for exploring and working with Windows desktop integrations. The first feature: programmatically open the Windows **"Select a default app for .xxx files"** system dialog (the same popup used by Adobe Acrobat, Chromium, and others to prompt users to change their default file association).
 
 ![Select a default app for .pdf files](https://i.sstatic.net/9p6Oq.png)
 
@@ -41,7 +41,7 @@ Note that `S_OK` is returned even if the user re-selected the already-current de
 
 ## Download
 
-A pre-built binary is available on the [Releases](https://github.com/drubino-mozilla/IOpenWithLauncher/releases) page. Download `OpenWithLauncher-win-x64.zip`, extract, and run `OpenWithLauncher.exe`.
+A pre-built binary is available on the [Releases](https://github.com/drubino-mozilla/DIExplorer/releases) page. Download `DIExplorer-win-x64.zip`, extract, and run `DIExplorer.exe`.
 
 ## Requirements
 

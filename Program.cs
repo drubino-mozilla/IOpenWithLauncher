@@ -1,7 +1,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace OpenWithLauncher;
+namespace DIExplorer;
 
 static class Program
 {
@@ -23,7 +23,7 @@ sealed class MainForm : Form
 
     public MainForm()
     {
-        Text = "OpenWithLauncher";
+        Text = "DIExplorer";
         FormBorderStyle = FormBorderStyle.FixedDialog;
         MaximizeBox = false;
         StartPosition = FormStartPosition.CenterScreen;

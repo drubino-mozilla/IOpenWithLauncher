@@ -1,0 +1,8 @@
+---
+description: Prefer automating terminal operations via the agent
+alwaysApply: true
+---
+
+# Terminal automation
+
+When the user asks for something that involves running commands (builds, tests, installs, git, scripts, etc.), run the operations yourself in the terminal instead of only suggesting commands. Prefer executing steps that can be automated unless the user explicitly wants instructions only or a manual step is required (e.g. entering a password or confirming in the browser).

@@ -1,7 +1,7 @@
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
 
-namespace OpenWithLauncher;
+namespace DIExplorer;
 
 /// <summary>
 /// Undocumented COM interface reverse-engineered by Chromium

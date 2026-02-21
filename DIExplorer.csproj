@@ -7,8 +7,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AssemblyName>OpenWithLauncher</AssemblyName>
-    <RootNamespace>OpenWithLauncher</RootNamespace>
+    <AssemblyName>DIExplorer</AssemblyName>
+    <RootNamespace>DIExplorer</RootNamespace>
   </PropertyGroup>
 
 </Project>
