@@ -41,22 +41,39 @@ Note that `S_OK` is returned even if the user re-selected the already-current de
 
 ## Download
 
-A pre-built binary is available on the [Releases](https://github.com/drubino-mozilla/DIExplorer/releases) page. Download `DIExplorer-win-x64.zip`, extract, and run `DIExplorer.exe`.
+A pre-built binary is available on the [Releases](https://github.com/drubino-mozilla/DIExplorer/releases) page. Download `DIExplorer-win-x64.zip`, extract, and run `DIExplorer.exe`. The release is a **single self-contained EXE** (~160 MB); no .NET runtime or other dependencies are required.
 
 ## Requirements
 
-- Windows 10 or later
-- [.NET 9.0 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/9.0) (win-x64)
+- **Pre-built release**: Windows 10 or later (x64). No .NET installation needed.
+- **Building from source**: [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) and the Desktop workload (WinForms/WPF).
 
 ## Usage
 
-Run the app, type a file extension (e.g. `.pdf`, `.html`, `.txt`), and click **Launch** (or press Enter). The system "Select a default app" popup appears and blocks until closed.
+- **Set PDF default**: Opens the same IOpenWithLauncher dialog for `.pdf` only (convenience for testing PDF defaults).
+- **Browser default**: Opens Windows Settings so you can change the default browser:
+  - **Windows 10**: One button opens **Settings → Default apps** with the **Web browser** row scrolled into view and focused (same as Firefox), using `IApplicationActivationManager` with `target=SystemSettings_DefaultApps_Browser`. If that fails, it falls back to `ms-settings:defaultapps`.
+  - **Windows 11**: Buttons are built from the registry: the app enumerates `HKLM\SOFTWARE\RegisteredApplications` and `HKCU\Software\RegisteredApplications` and shows one button per detected browser, using each app’s **exact** registered name so the deep link navigates to that app’s default-apps page. Only browsers that are actually registered appear. Firefox desktop uses names like `Firefox-<hash>` (not `Firefox`), so the app resolves these at runtime. Buttons (when present) include:
+    - **Firefox (firefox.com)** — release Firefox from mozilla.org
+    - **Firefox (Microsoft Store)** — Firefox from the Microsoft Store (if registered)
+    - **Firefox Nightly** — Nightly from firefox.com
+    - **Microsoft Edge** — switch back to Edge
+
+The app detects Windows 11 by build number (≥ 22000). On Windows 11, the deep link is `ms-settings:defaultapps?registeredAppMachine=<Name>` or `?registeredAppUser=<Name>`, where `<Name>` is the value name under the corresponding RegisteredApplications key. The app uses the correct parameter (machine vs user) depending on where each browser is registered.
 
 ## Building from Source
 
 ```bash
 dotnet build
 ```
+
+To produce the same single-file EXE as the official release (self-contained, no dependencies):
+
+```bash
+dotnet publish -c Release
+```
+
+The output is in `bin\Release\net9.0-windows\win-x64\publish\DIExplorer.exe`.
 
 ## How It Works
 
