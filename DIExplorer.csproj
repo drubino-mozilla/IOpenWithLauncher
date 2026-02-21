@@ -23,8 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="firefox-mascot-expressive-face-tail-split-rgb.svg" LogicalName="Kit.svg" />
+    <EmbeddedResource Include="Kit.svg" LogicalName="Kit.svg" />
     <EmbeddedResource Include="Clippy.png" LogicalName="Clippy.png" />
+    <EmbeddedResource Include="Test.PDF" LogicalName="Test.PDF" />
   </ItemGroup>
 
 </Project>
