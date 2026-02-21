@@ -39,25 +39,23 @@ class __declspec(uuid("6A283FE2-ECFA-4599-91C4-E80957137B26")) IOpenWithLauncher
 
 Note that `S_OK` is returned even if the user re-selected the already-current default. This tool detects that case by reading the `ProgId` from the `UserChoice` registry key before and after the dialog (see below).
 
+## Download
+
+A pre-built binary is available on the [Releases](https://github.com/drubino-mozilla/IOpenWithLauncher/releases) page. Download `OpenWithLauncher-win-x64.zip`, extract, and run `OpenWithLauncher.exe`.
+
 ## Requirements
 
 - Windows 10 or later
-- .NET 9.0 Runtime
+- [.NET 9.0 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/9.0) (win-x64)
 
 ## Usage
 
 Run the app, type a file extension (e.g. `.pdf`, `.html`, `.txt`), and click **Launch** (or press Enter). The system "Select a default app" popup appears and blocks until closed.
 
-## Building
+## Building from Source
 
 ```bash
 dotnet build
-```
-
-To produce a self-contained single-file executable:
-
-```bash
-dotnet publish -c Release -r win-x64 --self-contained -p:PublishSingleFile=true
 ```
 
 ## How It Works
